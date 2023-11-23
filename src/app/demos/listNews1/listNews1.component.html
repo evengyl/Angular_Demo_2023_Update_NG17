@@ -1,0 +1,178 @@
+<h3 class='center'>Demos 1 : Les nouveautés V17</h3>
+
+<div class="row">
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>Exemple de component standalone : </p>
+				<p>
+					- Composant autonome par défaut : Les composants, directives et tubes peuvent désormais 
+					être marqués comme autonomes : true. Les classes angulaires marquées comme autonomes 
+					n'ont pas besoin d'être déclarées dans un NgModule (le compilateur Angular signalera une erreur si vous essayez). 
+					Les composants autonomes spécifient leurs dépendances directement au lieu de les obtenir via NgModules. 
+					Par exemple, si PhotoGalleryComponent est un composant autonome, il peut importer directement un autre 
+					composant autonome ImageGridComponent :
+					
+				</p>
+				<hr>
+				<pre>{{ varStandalone}}</pre>
+				<hr>
+				<p>
+					attention que angular recommende, si on lance un projet classique avec ng new, de lancer les 3 commandes suivante pour 
+					switcher le projet en mode standelone total, sinon des gros problèmes apparaitrons très rapidements,
+					pour ce faire il faut lancer la commande suivant 3 fois pour checker les 3 options...
+				</p>
+				<hr>
+				<pre><br>--> ng g &#64;angular/core:standalone	</pre>
+				<p>
+					<br>
+					Ceci lance par défaut le changement et la suppression des choses suivante,
+					delete du module app, remplacement de app.compo en mode standalone total
+					changement majeur dans le main.ts
+					il faudra également aller dans le module app routing, et ne laisser que la déclaration des routes, 
+					voir --> le fichier est déjà modifié (app-routing.ts)
+					--> aller voir également dans le main.ts et surtout ré-importer les routes dans les providers de routages
+				</p>
+				<p>Exemple main.ts actuel V17 : </p>
+				<pre>{{ mainChange }}</pre>
+
+				<hr>
+				<p>
+					PS : Par défaut le compo app.component n'est pas standalone ! normal il sert de boostrapeur
+					si, nous voulons utiliser un compo standalone, dans un compo non standalone, comme pour mettre un selector de 
+					navbar dans le app.component nous devrons, aller dans le module du app.component, donc app.module.ts et ajouter
+					non plus dans les déclaration mais dans les import, le compo standalone navbar.
+				</p>
+
+				<hr>
+
+				<p>
+					PS : Par défaut, les components standalone utilisant un RouterLink devront importer également le RouterModule dans les déclaration du compoenent
+				</p>
+
+				<hr>
+				<p>Voir la doc : https://angular.io/guide/standalone-components</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- Hydration (hydratation) : activé par défaut, ce processus, qui restaure l'application rendue côté serveur sur le client, 
+					était jusqu’à présent disponible uniquement en aperçu pour les développeurs.
+					L'hydration améliore les performances en évitant le travail supplémentaire de recréation des nœuds du DOM.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- Signals : assure le suivi granulaire de l'état d'une application. 
+					Également sorti de son statut d’aperçu pour les développeurs, la fonctionnalité
+					 donne au framework la capacité d'optimiser les mises à jour de rendu. D'autres 
+					 fonctionnalités pour Signals seront ajoutées pour améliorer l'expérience des développeurs d'ici la version Angular 18.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- Une capacité de vues différentiables, également en aperçu développeur, 
+					permet de charger paresseusement – Lazy Loading - des composants des templates 
+					et des dépendances transitives avec une seule ligne de code déclaratif.
+					{{lazyCompo}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- L'expérience de rendu hybride a été revue. SSR et SSG sont plus
+					 proches des développeurs grâce à une invite dans ng new.
+					 <br>
+					 Pour lancer un projet hybride la commande suivante doit être lancée
+				</p>
+				<pre>--> ng new my-app --ssr</pre>
+				<p>Ou si c'est pour une app existante, la commande suivante</p>
+				<pre>--> ng add &#64;angular/ssr</pre>
+				<p>Vous trouvez plus d'infos ici : https://angular.io/guide/ssr</p>
+				<p>Voir la demo de code d'un ssr ici : https://github.com/evengyl/Angular_SSR_SSG_Demo_2023_NG17</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- Le constructeur d'applications Application Builder introduit dans Angular 16,
+					 avec ESBuild et une expérience de build alimentée par Vite, est a
+					 ctivé par défaut pour les nouvelles applications. Certains utilisateurs font état 
+					 d’une amélioration de 67 % du temps de construction.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- L'API View Transitions, qui permet des transitions fluides lors 
+					de la modification du DOM, est désormais directement prise en charge
+					 dans le routeur Angular via la fonctionnalité ViewTransitions.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					- La directive image Angular génère désormais automatiquement des
+					 liens de préconnexion pour les domaines fournis comme argument au chargeur d'images.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col s12">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<p>
+					Les vues différées peuvent être utilisées dans le modèle de composant 
+					pour différer le chargement des dépendances sélectionnées dans ce modèle.
+					 Ces dépendances incluent les composants, les directives et les canaux, 
+					 ainsi que tout CSS associé. Pour utiliser cette fonctionnalité, vous pouvez 
+					 envelopper de manière déclarative une section de votre modèle dans un bloc 
+					 &#64;defer qui spécifie les conditions de chargement.<br>
+					 LIEN : https://angular.io/guide/defer
+
+				</p>
+			</div>
+		</div>
+	</div>
+
+	
+</div>
+
